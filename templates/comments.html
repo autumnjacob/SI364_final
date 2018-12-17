@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Comments {% endblock %}
+
+{% block content %}
+
+<h1> Comments </h1>
+
+{% for (comment_text, apod_title, username) in comments %}
+  <div class = "comment">
+    <h1> Comment about <i> {{ apod_title }} </i> from <i> {{ username }} </i> </h1>
+    <h3> {{ comment_text }} </h3>
+{% endfor %}
+
+{% endblock %}

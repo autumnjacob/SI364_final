@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} APODs {% endblock %}
+
+{% block content %}
+
+<h1> APODs </h1>
+
+{% for message in get_flashed_messages() %}
+<span class = "flash-message"> {{ message }} </span>
+{% endfor %}
+</div>
+
+{% for apod in pictures %}
+  <div class = "apod">
+    <img src="{{ apod.image_url }}" height="300">
+    <h1> {{ apod.title }} <i> from {{ apod.date }} </i> </h1>
+    <h3> {{ apod.description }} </h3>
+{% endfor %}
+
+{% if current_user.is_authenticated and is_apod == True %}
+<form method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.gallery_name.label }} {{ form.gallery_name() }}
+  {{ form.comment_text.label }} {{ form.comment_text() }}
+	{{ form.save_photo_submit.label }} {{ form.save_photo_submit() }}
+</form>
+{% endif %}
+
+{% endblock %}

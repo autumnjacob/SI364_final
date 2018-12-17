@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} Galleries {% endblock %}
+
+{% block content %}
+
+<h1> Your Galleries </h1>
+
+<form method="POST">
+	{{ form.remove_galleries_submit() }}
+</form>
+
+{% for gallery in galleries %}
+  <div class = "gallery">
+    <a class = "gallery" href="{{ url_for('explore_gallery', gallery_id=gallery.id) }}"> {{ gallery.gallery_name }}
+{% endfor %}
+
+
+{% endblock %}

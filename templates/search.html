@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Search {% endblock %}
+
+{% block content %}
+
+<h1> Search </h1>
+<h3> Please enter the date this way: YYYY-MM-DD </h3>
+
+<form method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.apod_date.label }} {{ form.apod_date() }}
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+
+{% endblock %}
